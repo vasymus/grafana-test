@@ -1,15 +1,7 @@
 <?php
 
-function getIp(): string {
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        return $_SERVER['HTTP_CLIENT_IP'];
-    }
-    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        return $_SERVER['HTTP_X_FORWARDED_FOR'];
-    }
-
-    return $_SERVER['REMOTE_ADDR'];
-}
+require __DIR__ . '/../vendor/autoload.php';
+$app = require __DIR__ . '/../bootstrap/app.php'; // todo routing etc
 
 function addLog($message): void {
     $handle = fopen('php://stdout', 'w');
@@ -22,7 +14,9 @@ $logMessage = sprintf(
     (new DateTime())->format('Y-m-d H:i:s'),
     getIp()
 );
-addLog($logMessage);
+
+//addLog($logMessage);
+\Services\H::log($logMessage);
 
 header('Access-Control-Allow-Origin: *');
 

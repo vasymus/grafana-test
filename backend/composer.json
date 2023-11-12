@@ -1,0 +1,25 @@
+{
+    "name": "root/html",
+    "autoload": {
+        "psr-4": {
+            "Services\\": "src/Services",
+            "Shared\\": "src/Shared",
+            "App\\": "src/App"
+        },
+        "files": [
+            "src/App/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Example Test"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.8",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    }
+}
